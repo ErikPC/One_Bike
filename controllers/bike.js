@@ -74,6 +74,20 @@ async function getBikeByName(req, res) {
   }
 }
 
+async function getBikeByMark(req, res) {
+  const makerBike = req.params.maker;
+  try {
+    const bike = await Bike.find({ maker: makerBike });
+    if (!bike) {
+      res.status(400).send({ msg: "No se ha podido encontrar la bicicleta" });
+    } else {
+      res.status(200).send(bike);
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
+
 function makebike(req) {
   const bike = new Bike();
   const params = req.body;
