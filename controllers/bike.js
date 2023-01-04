@@ -45,8 +45,24 @@ async function updateBike(req, res) {
   }
 }
 
+async function deleteBike(req, res) {
+  const nameBike = req.params.name;
+
+  try {
+    const bike = await Bike.findOneAndDelete({ name: nameBike });
+    if (!bike) {
+      res.status(400).send({ msg: "No se ha podido eliminar la tarea" });
+    } else {
+      res.status(200).send({ msg: "Se ha eliminado correctamente" });
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
+
 module.exports = {
   createBike,
   getBike,
   updateBike,
+  deleteBike,
 };
