@@ -74,6 +74,27 @@ async function getBikeByName(req, res) {
   }
 }
 
+function makebike(req) {
+  const bike = new Bike();
+  const params = req.body;
+
+  bike.year = params.year;
+  bike.maker = params.maker;
+  bike.name = params.name;
+  bike.description = params.description;
+  bike.msrp = params.msrp;
+  bike.weight = params.weight;
+  bike.suspension = params.suspension;
+  bike.travel = params.travel;
+  bike.frame = params.frame;
+  bike.fork = params.fork;
+  bike.wheels = params.wheels;
+  bike.drivetrain = params.drivetrain;
+  bike.groupset = params.groupset;
+  bike.brakes = params.brakes;
+
+  return bike;
+}
 module.exports = {
   createBike,
   getBike,
