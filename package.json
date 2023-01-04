@@ -1,0 +1,9 @@
+{
+    "name": "One_Bike",
+    "version": "1.0.0",
+    "description": "Proyecto CRUD Mongo con Express",
+    "main": "index.js",
+    "repository": "https://github.com/ErikPC/One_Bike",
+    "author": "ErikPC <epardillo@cifpfbmoll.eu>",
+    "license": "MIT"
+  }
