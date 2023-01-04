@@ -115,4 +115,5 @@ module.exports = {
   updateBike,
   deleteBike,
   getBikeByName,
+  getBikeByMark,
 };
