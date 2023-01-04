@@ -29,7 +29,24 @@ async function getBike(req, res) {
   }
 }
 
+async function updateBike(req, res) {
+  const nameBike = req.params.name;
+  const params = req.body;
+
+  try {
+    const bike = await Bike.findOneAndUpdate({ name: nameBike }, params);
+    if (!bike) {
+      res.status(400).send({ msg: "Error al buscar bicicleta" });
+    } else {
+      res.status(200).send({ msg: "Se ha actualizado correcatemnte" });
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
+
 module.exports = {
   createBike,
   getBike,
+  updateBike,
 };
