@@ -7,11 +7,13 @@
     "author": "ErikPC <epardillo@cifpfbmoll.eu>",
     "license": "MIT",
     "scripts": {
-        "start": "node index.js"
+        "start": "node index.js",
+        "dev":"nodemon index.js"
     },
     "dependencies": {
         "dotenv": "^16.0.3",
         "express": "^4.18.2",
-        "mongoose": "^6.8.2"
+        "mongoose": "^6.8.2",
+        "nodemon": "^2.0.20"
     }
 }
