@@ -41,4 +41,9 @@ describe("Test CRUD", () => {
     const response = await request(app).get("/api/bike");
     expect(response.statusCode).toBe(200);
   });
+
+  test("get one bike", async () => {
+    const response = await request(app).get("/api/bike/yes");
+    expect(response.statusCode).toBe(200);
+  });
 });
