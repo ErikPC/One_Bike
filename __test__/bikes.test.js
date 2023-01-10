@@ -51,4 +51,24 @@ describe("Test CRUD", () => {
     const response = await request(app).delete("/api/bike/yes");
     expect(response.statusCode).toBe(200);
   });
+
+  test("update bike by name", async () => {
+    const response = await request(app).put("/api/bike/yes").send({
+      year: "2000",
+      maker: "yes",
+      name: "yes",
+      description: "yes",
+      msrp: "$999",
+      weight: "yes",
+      suspension: "yes",
+      travel: "yes",
+      frame: "yes",
+      fork: "yes",
+      wheels: "yes",
+      drivetrain: "yes",
+      groupset: "yes",
+      brakes: "yes",
+    });
+    expect(response.statusCode).toBe(200);
+  });
 });
