@@ -7,8 +7,8 @@ require("dotenv").config();
 const uri = process.env.MONGO_URI_TEST;
 
 describe("Test CRUD", () => {
+  jest.setTimeout(10000);
   beforeAll(async () => {
-    jest.setTimeout(10000);
     await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -44,6 +44,11 @@ describe("Test CRUD", () => {
 
   test("get one bike", async () => {
     const response = await request(app).get("/api/bike/yes");
+    expect(response.statusCode).toBe(200);
+  });
+
+  test("delete bike by name", async () => {
+    const response = await request(app).delete("/api/bike/yes");
     expect(response.statusCode).toBe(200);
   });
 });
