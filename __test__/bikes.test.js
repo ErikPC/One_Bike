@@ -1,6 +1,8 @@
 const request = require("supertest");
 const app = require("../app");
 const mongoose = require("mongoose");
+const Bike = require("../models/bike");
+const bikes = require("./bike.json");
 
 require("dotenv").config();
 
@@ -13,6 +15,14 @@ describe("Test CRUD", () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+    await Bike.insertMany(bikes);
+  });
+
+  afterAll(async () => {
+    // Borramos los datos de la base de datos antes de cada prueba
+    await Bike.deleteMany({});
+    // Desconectamos de la base de datos de pruebas
+    await mongoose.connection.close();
   });
 
   test("create a bike", async () => {
@@ -53,7 +63,7 @@ describe("Test CRUD", () => {
   });
 
   test("update bike by name", async () => {
-    const response = await request(app).put("/api/bike/yes").send({
+    const response = await request(app).put("/api/bike/Bike 3").send({
       year: "2000",
       maker: "yes",
       name: "yes",
@@ -67,7 +77,7 @@ describe("Test CRUD", () => {
       wheels: "yes",
       drivetrain: "yes",
       groupset: "yes",
-      brakes: "yes",
+      brakes: "no",
     });
     expect(response.statusCode).toBe(200);
   });
