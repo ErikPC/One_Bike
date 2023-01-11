@@ -36,6 +36,12 @@ Para ejecutar las pruebas automatizadas, ejecute el siguiente comando:
 yarn test
 ```
 
+## Dockerfile
+
+A la hora de lanzar la imagen en docker hay que acordarse de pasarle la MONGO_URI que si no no va a conectar a la base de datos.
+
+`docker run -e MONGO_URI='mongodb+srv://<user>:<password>@erik-cluster.cs90yi4.mongodb.net/?retryWrites=true&w=majority' -p 3000:3000 <nombre imagen>`
+
 ## Contribuciones
 
 Para contribuir a este proyecto, por favor envíe un pull request en el repositorio de GitHub: https://github.com/ErikPC/One_Bike
