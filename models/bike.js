@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const bikeSchema = new mongoose.Schema({
+  store: {
+    type: String,
+    required: true,
+  },
   year: {
     type: String,
     required: true,
