@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Bike = require("../models/bike");
 const bikes = require("./bike.json");
 const updateBike = require("./updateBike.json");
-const bikePutDelete = require("./bikePutDelete.json");
+const bikeToPut = require("./bikeToPut.json");
 
 require("dotenv").config();
 
@@ -28,7 +28,7 @@ describe("Test CRUD", () => {
   });
 
   test("create a bike", async () => {
-    const response = await request(app).post("/api/bike").send(bikePutDelete);
+    const response = await request(app).post("/api/bike").send(bikeToPut);
     const data = JSON.parse(response.text).bike;
     expect(data.name).toBe("Fuel EX");
     expect(response.statusCode).toBe(200);
@@ -45,7 +45,7 @@ describe("Test CRUD", () => {
   });
 
   test("delete bike by name", async () => {
-    const response = await request(app).delete("/api/bike/Fuel EX");
+    const response = await request(app).delete("/api/bike/Bike 1");
     expect(response.statusCode).toBe(200);
   });
 
