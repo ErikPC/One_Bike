@@ -61,7 +61,7 @@ async function getBikeByName(req, res) {
   const nameBike = req.params.name;
   try {
     const bike = await Bike.find({ name: nameBike });
-    if (!bike) {
+    if (bike.length == 0) {
       res.status(400).send({ msg: "No se ha podido encontrar la bicicleta" });
     } else {
       res.status(200).send(bike);
