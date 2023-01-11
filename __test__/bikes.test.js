@@ -13,6 +13,7 @@ const uri = process.env.MONGO_URI_TEST;
 describe("Test CRUD", () => {
   jest.setTimeout(10000);
   beforeAll(async () => {
+    mongoose.set("strictQuery", false);
     await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -53,6 +54,11 @@ describe("Test CRUD", () => {
     const response = await request(app)
       .put("/api/bike/Bike 3")
       .send(updateBike);
+    expect(response.statusCode).toBe(200);
+  });
+
+  test("get bike by maker", async () => {
+    const response = await request(app).get("/api/bike/maker/Trek");
     expect(response.statusCode).toBe(200);
   });
 });
