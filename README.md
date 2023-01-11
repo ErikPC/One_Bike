@@ -36,45 +36,6 @@ Para ejecutar las pruebas automatizadas, ejecute el siguiente comando:
 yarn test
 ```
 
-## Estructura del Proyecto
-
-```
-One_Bike/
-├── node_modules/
-├── public/
-│   ├── images/
-│   ├── styles/
-│   └── index.html
-├── src/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── utils/
-│   ├── index.js
-├── test/
-│   └── controllers.test.js
-├── package.json
-├── package-lock.json
-├── README.md
-├── .gitignore
-└── .env
-```
-
-- `node_modules/`: Contiene las dependencias del proyecto instaladas por Yarn.
-- `public/`: Contiene los archivos estáticos, como imágenes y hojas de estilo, que se servirán al cliente.
-- `src/`: Contiene el código fuente de la aplicación.
-- `src/controllers`: Contiene los controladores que manejan las peticiones del cliente y se comunican con el modelo.
-- `src/models`: Contiene los modelos de Mongoose para representar los datos en la base de datos.
-- `src/routes`: Contiene las rutas de la aplicación y los puntos finales que manejan las peticiones HTTP.
-- ` src/utils`: Contiene funciones o librerías que son útiles para el proyecto.
-- `src/index.js`: Es el punto de entrada del proyecto, donde se configura el servidor y se establecen las rutas.
-- `test/`: Contiene las pruebas automatizadas del proyecto.
-- `package.json`: Contiene la información del proyecto y las dependencias necesarias para ejecutarlo.
-- `package-lock.json`: Contiene información detallada sobre las versiones de las dependencias del proyecto.
-- `README.md`: Contiene la documentación del proyecto, como las instrucciones de uso y configuración.
-- `.gitignore`: Contiene los archivos y directorios que deben ser ignorados por Git.
-- `.env`: Contiene las variables de entorno necesarias para la configuración del proyecto.
-
 ## Contribuciones
 
 Para contribuir a este proyecto, por favor envíe un pull request en el repositorio de GitHub: https://github.com/ErikPC/One_Bike
