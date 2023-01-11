@@ -20,11 +20,7 @@ async function createBike(req, res) {
 async function getBike(req, res) {
   try {
     var bikes = await Bike.find();
-    if (!bikes) {
-      res.status(400).send({ msg: "Error al buscar bicicleta" });
-    } else {
-      res.status(200).send(bikes);
-    }
+    res.status(200).send(bikes);
   } catch (error) {
     res.status(500).send(error);
   }
@@ -65,7 +61,7 @@ async function getBikeByName(req, res) {
   const nameBike = req.params.name;
   try {
     const bike = await Bike.find({ name: nameBike });
-    if (!bike) {
+    if (bike.length == 0) {
       res.status(400).send({ msg: "No se ha podido encontrar la bicicleta" });
     } else {
       res.status(200).send(bike);
@@ -79,7 +75,7 @@ async function getBikeByMark(req, res) {
   const makerBike = req.params.maker;
   try {
     const bike = await Bike.find({ maker: makerBike });
-    if (!bike) {
+    if (bike.length == 0) {
       res.status(400).send({ msg: "No se ha podido encontrar la bicicleta" });
     } else {
       res.status(200).send(bike);

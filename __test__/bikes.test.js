@@ -40,9 +40,14 @@ describe("Test CRUD", () => {
     expect(response.statusCode).toBe(200);
   });
 
-  test("get one bike", async () => {
+  test("get one bike code 200", async () => {
     const response = await request(app).get("/api/bike/Bike 2");
     expect(response.statusCode).toBe(200);
+  });
+
+  test("get one bike code 400", async () => {
+    const response = await request(app).get("/api/bike/Bike 5");
+    expect(response.statusCode).toBe(400);
   });
 
   test("delete bike by name", async () => {
@@ -57,8 +62,13 @@ describe("Test CRUD", () => {
     expect(response.statusCode).toBe(200);
   });
 
-  test("get bike by maker", async () => {
+  test("get bike by maker code 200", async () => {
     const response = await request(app).get("/api/bike/maker/Trek");
     expect(response.statusCode).toBe(200);
+  });
+
+  test("get bike by maker code 400", async () => {
+    const response = await request(app).get("/api/bike/maker/Scott");
+    expect(response.statusCode).toBe(400);
   });
 });
