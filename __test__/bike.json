@@ -1,0 +1,51 @@
+[
+    {
+      "year": "2022",
+      "maker": "Brand 1",
+      "name": "Bike 1",
+      "description": "First bike",
+      "msrp": "$1200",
+      "weight": "13kg",
+      "suspension": "None",
+      "travel": "100mm",
+      "frame": "Aluminun",
+      "fork": "Brand fork",
+      "wheels": "Brand wheels",
+      "drivetrain": "Brand drivetrain",
+      "groupset": "Brand groupset",
+      "brakes": "Brand brakes"
+    },
+    {
+      "year": "2022",
+      "maker": "Brand 2",
+      "name": "Bike 2",
+      "description": "Second bike",
+      "msrp": "$1000",
+      "weight": "12kg",
+      "suspension": "None",
+      "travel": "120mm",
+      "frame": "Carbon",
+      "fork": "Brand fork",
+      "wheels": "Brand wheels",
+      "drivetrain": "Brand drivetrain",
+      "groupset": "Brand groupset",
+      "brakes": "Brand brakes"
+    },
+    {
+      "year": "2022",
+      "maker": "Brand 3",
+      "name": "Bike 3",
+      "description": "Third bike",
+      "msrp": "$900",
+      "weight": "11kg",
+      "suspension": "None",
+      "travel": "80mm",
+      "frame": "Steel",
+      "fork": "Brand fork",
+      "wheels": "Brand wheels",
+      "drivetrain": "Brand drivetrain",
+      "groupset": "Brand groupset",
+      "brakes": "Brand brakes"
+    }
+  ]
+  
