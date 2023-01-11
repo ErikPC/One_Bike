@@ -1,5 +1,6 @@
 [
     {
+      "store":"Canyon",
       "year": "2022",
       "maker": "Brand 1",
       "name": "Bike 1",
@@ -16,6 +17,7 @@
       "brakes": "Brand brakes"
     },
     {
+      "store":"Canyon",
       "year": "2022",
       "maker": "Brand 2",
       "name": "Bike 2",
@@ -32,6 +34,7 @@
       "brakes": "Brand brakes"
     },
     {
+      "store":"Canyon",
       "year": "2022",
       "maker": "Brand 3",
       "name": "Bike 3",
