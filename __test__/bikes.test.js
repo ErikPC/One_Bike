@@ -62,7 +62,7 @@ describe("Test CRUD", () => {
     expect(response.statusCode).toBe(200);
   });
 
-  test("get bike by maker", async () => {
+  test("get bike by maker code 200", async () => {
     const response = await request(app).get("/api/bike/maker/Trek");
     expect(response.statusCode).toBe(200);
   });
