@@ -3,6 +3,7 @@ const app = require("../app");
 const mongoose = require("mongoose");
 const Bike = require("../models/bike");
 const bikes = require("./bike.json");
+const updateBike = require("./updateBike.json");
 
 require("dotenv").config();
 
@@ -63,22 +64,9 @@ describe("Test CRUD", () => {
   });
 
   test("update bike by name", async () => {
-    const response = await request(app).put("/api/bike/Bike 3").send({
-      year: "2000",
-      maker: "yes",
-      name: "yes",
-      description: "yes",
-      msrp: "$999",
-      weight: "yes",
-      suspension: "yes",
-      travel: "yes",
-      frame: "yes",
-      fork: "yes",
-      wheels: "yes",
-      drivetrain: "yes",
-      groupset: "yes",
-      brakes: "no",
-    });
+    const response = await request(app)
+      .put("/api/bike/Bike 3")
+      .send(updateBike);
     expect(response.statusCode).toBe(200);
   });
 });
