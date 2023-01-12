@@ -2,9 +2,9 @@ const request = require("supertest");
 const app = require("../app");
 const mongoose = require("mongoose");
 const Bike = require("../models/bike");
-const bikes = require("./bike.json");
-const updateBike = require("./updateBike.json");
-const bikeToPut = require("./bikeToPut.json");
+const bikes = require("../db/bike/bike.json");
+const updateBike = require("../db/bike/updateBike.json");
+const bikeToPut = require("../db/bike/bikeToPut.json");
 
 require("dotenv").config();
 
