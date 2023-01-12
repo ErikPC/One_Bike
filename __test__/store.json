@@ -1,0 +1,23 @@
+[
+    {
+    "name": "Mi tienda",
+    "address": "Calle 123, Ciudad XYZ",
+    "phone": "555-555-5555",
+    "email": "info@mitienda.com"
+    },
+    {
+    "name": "Tienda",
+    "address": "Calle 2, Colonia DEF",
+    "phone": "333-333-3333",
+    "email": "tienda@dominio.com"
+      },
+    {
+    "name": "Supermercado",
+    "address": "Calle 3, Colonia GHI",
+    "phone": "222-222-2222",
+    "email": "supermercado@dominio.com"
+    }
+      
+      
+]  
+
