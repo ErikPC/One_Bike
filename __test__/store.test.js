@@ -5,9 +5,8 @@ const app = require("../app");
 const mongoose = require("mongoose");
 const Store = require("../models/store");
 
-const store = require("../db/store/store.json");
+const stores = require("../db/store/store.json");
 const updateStore = require("../db/store/updateStore.json");
-const storeToPut = require("../db/store/storeToPut.json");
 
 describe("Test CRUD", () => {
   jest.setTimeout(10000);
@@ -17,7 +16,7 @@ describe("Test CRUD", () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    await Store.insertMany(store);
+    await Store.insertMany(stores);
   });
 
   afterAll(async () => {
@@ -25,5 +24,17 @@ describe("Test CRUD", () => {
     await Store.deleteMany({});
     // Desconectamos de la base de datos de pruebas
     await mongoose.connection.close();
+  });
+
+  // test("create a store", async () => {
+  //   const response = await request(app).post("/api/store").send(updateStore);
+  //   const data = JSON.parse(response.text).store;
+  //   expect(data.name).toBe("Mi tienda");
+  //   expect(response.statusCode).toBe(200);
+  // });
+
+  test("get all stores", async () => {
+    const response = await request(app).get("/api/store");
+    expect(response.statusCode).toBe(200);
   });
 });

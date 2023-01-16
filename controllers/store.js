@@ -17,6 +17,16 @@ async function createStore(req, res) {
   }
 }
 
-module.exports = {
-  createStore,
-};
+async function getStores(req, res) {
+  try {
+    var stores = await Store.find();
+    res.status(200).send(stores);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+
+  module.exports = {
+    createStore,
+    getStores,
+  };
+}
