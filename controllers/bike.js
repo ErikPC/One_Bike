@@ -2,11 +2,8 @@ const Bike = require("../models/bike");
 const repository = require("../repository/repository");
 
 async function createBike(req, res) {
-  const bikeParams = req.body;
-  const bike = new Bike(bikeParams);
-
   try {
-    const bikeStore = await bike.save();
+    const bikeStore = await repository.createBike(req.body);
 
     if (!bikeStore) {
       res.status(400).send({ msg: "No se ha podido almacenar la bicicleta" });
