@@ -6,6 +6,11 @@ function createBike(req) {
   return bike.save();
 }
 
+function getallBikes() {
+  const bike = Bike.find();
+  return bike;
+}
+
 function getBikeByName(req) {
   const nameBike = req;
   const bike = Bike.find({ name: nameBike });
@@ -15,4 +20,5 @@ function getBikeByName(req) {
 module.exports = {
   getBikeByName,
   createBike,
+  getallBikes,
 };
