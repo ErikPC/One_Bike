@@ -1,11 +1,8 @@
-const Bike = require("../models/bike");
+const repository = require("../repository/repository");
 
 async function createBike(req, res) {
-  const bikeParams = req.body;
-  const bike = new Bike(bikeParams);
-
   try {
-    const bikeStore = await bike.save();
+    const bikeStore = await repository.createBike(req.body);
 
     if (!bikeStore) {
       res.status(400).send({ msg: "No se ha podido almacenar la bicicleta" });
@@ -17,9 +14,9 @@ async function createBike(req, res) {
   }
 }
 
-async function getBike(req, res) {
+async function getAllBikes(req, res) {
   try {
-    var bikes = await Bike.find();
+    var bikes = await repository.getallBikes();
     res.status(200).send(bikes);
   } catch (error) {
     res.status(500).send(error);
@@ -27,11 +24,8 @@ async function getBike(req, res) {
 }
 
 async function updateBike(req, res) {
-  const nameBike = req.params.name;
-  const params = req.body;
-
   try {
-    const bike = await Bike.findOneAndUpdate({ name: nameBike }, params);
+    const bike = await repository.updateBike(req.params.name, req.body);
     if (!bike) {
       res.status(400).send({ msg: "Error al buscar bicicleta" });
     } else {
@@ -43,10 +37,8 @@ async function updateBike(req, res) {
 }
 
 async function deleteBike(req, res) {
-  const nameBike = req.params.name;
-
   try {
-    const bike = await Bike.findOneAndDelete({ name: nameBike });
+    const bike = await repository.deleteBike(req.params.name);
     if (!bike) {
       res.status(400).send({ msg: "No se ha podido eliminar la tarea" });
     } else {
@@ -58,9 +50,8 @@ async function deleteBike(req, res) {
 }
 
 async function getBikeByName(req, res) {
-  const nameBike = req.params.name;
   try {
-    const bike = await Bike.find({ name: nameBike });
+    const bike = await repository.getBikeByName(req.params.name);
     if (bike.length == 0) {
       res.status(400).send({ msg: "No se ha podido encontrar la bicicleta" });
     } else {
@@ -72,9 +63,8 @@ async function getBikeByName(req, res) {
 }
 
 async function getBikeByMark(req, res) {
-  const makerBike = req.params.maker;
   try {
-    const bike = await Bike.find({ maker: makerBike });
+    const bike = await repository.getBikeByMark(req.params.mark);
     if (bike.length == 0) {
       res.status(400).send({ msg: "No se ha podido encontrar la bicicleta" });
     } else {
@@ -87,7 +77,7 @@ async function getBikeByMark(req, res) {
 
 module.exports = {
   createBike,
-  getBike,
+  getAllBikes,
   updateBike,
   deleteBike,
   getBikeByName,
