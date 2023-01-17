@@ -1,4 +1,5 @@
 const Bike = require("../models/bike");
+const repository = require("../repository/repository");
 
 async function createBike(req, res) {
   const bikeParams = req.body;
@@ -58,9 +59,8 @@ async function deleteBike(req, res) {
 }
 
 async function getBikeByName(req, res) {
-  const nameBike = req.params.name;
   try {
-    const bike = await Bike.find({ name: nameBike });
+    const bike = await repository.getBikeByName(req.params.name);
     if (bike.length == 0) {
       res.status(400).send({ msg: "No se ha podido encontrar la bicicleta" });
     } else {
