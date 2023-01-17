@@ -25,11 +25,8 @@ async function getAllBikes(req, res) {
 }
 
 async function updateBike(req, res) {
-  const nameBike = req.params.name;
-  const params = req.body;
-
   try {
-    const bike = await Bike.findOneAndUpdate({ name: nameBike }, params);
+    const bike = await repository.updateBike(req.params.name, req.body);
     if (!bike) {
       res.status(400).send({ msg: "Error al buscar bicicleta" });
     } else {
