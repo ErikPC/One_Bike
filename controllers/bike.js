@@ -17,7 +17,7 @@ async function createBike(req, res) {
 
 async function getBike(req, res) {
   try {
-    var bikes = await Bike.find();
+    var bikes = await repository.getallBikes();
     res.status(200).send(bikes);
   } catch (error) {
     res.status(500).send(error);
