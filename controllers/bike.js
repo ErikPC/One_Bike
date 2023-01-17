@@ -64,7 +64,7 @@ async function getBikeByName(req, res) {
 
 async function getBikeByMark(req, res) {
   try {
-    const bike = await repository.getBikeByMark(req.params.mark);
+    const bike = await repository.getBikeByMark(req.params.maker);
     if (bike.length == 0) {
       res.status(400).send({ msg: "No se ha podido encontrar la bicicleta" });
     } else {
