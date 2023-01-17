@@ -17,6 +17,12 @@ function updateBike(name, body) {
   return bike;
 }
 
+function deleteBike(req) {
+  const nameBike = req;
+  const bike = Bike.findOneAndDelete({ name: nameBike });
+  return bike;
+}
+
 function getBikeByName(req) {
   const nameBike = req;
   const bike = Bike.find({ name: nameBike });
@@ -27,5 +33,6 @@ module.exports = {
   getBikeByName,
   createBike,
   updateBike,
+  deleteBike,
   getallBikes,
 };
