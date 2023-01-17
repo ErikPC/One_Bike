@@ -15,7 +15,7 @@ async function createBike(req, res) {
   }
 }
 
-async function getBike(req, res) {
+async function getAllBikes(req, res) {
   try {
     var bikes = await repository.getallBikes();
     res.status(200).send(bikes);
@@ -84,7 +84,7 @@ async function getBikeByMark(req, res) {
 
 module.exports = {
   createBike,
-  getBike,
+  getAllBikes,
   updateBike,
   deleteBike,
   getBikeByName,
