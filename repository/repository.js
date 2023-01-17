@@ -10,6 +10,12 @@ function getallBikes() {
   const bike = Bike.find();
   return bike;
 }
+function updateBike(name, body) {
+  const nameBike = name;
+  const params = body;
+  const bike = Bike.findOneAndUpdate({ name: nameBike }, params);
+  return bike;
+}
 
 function getBikeByName(req) {
   const nameBike = req;
@@ -20,5 +26,6 @@ function getBikeByName(req) {
 module.exports = {
   getBikeByName,
   createBike,
+  updateBike,
   getallBikes,
 };
