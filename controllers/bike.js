@@ -1,4 +1,3 @@
-const Bike = require("../models/bike");
 const repository = require("../repository/repository");
 
 async function createBike(req, res) {
@@ -64,9 +63,8 @@ async function getBikeByName(req, res) {
 }
 
 async function getBikeByMark(req, res) {
-  const makerBike = req.params.maker;
   try {
-    const bike = await Bike.find({ maker: makerBike });
+    const bike = await repository.getBikeByMark(req.params.mark);
     if (bike.length == 0) {
       res.status(400).send({ msg: "No se ha podido encontrar la bicicleta" });
     } else {
