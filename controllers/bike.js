@@ -38,10 +38,8 @@ async function updateBike(req, res) {
 }
 
 async function deleteBike(req, res) {
-  const nameBike = req.params.name;
-
   try {
-    const bike = await Bike.findOneAndDelete({ name: nameBike });
+    const bike = await repository.deleteBike(req.params.name);
     if (!bike) {
       res.status(400).send({ msg: "No se ha podido eliminar la tarea" });
     } else {
