@@ -29,10 +29,17 @@ function getBikeByName(req) {
   return bike;
 }
 
+function getBikeByMark(req) {
+  const markBike = req;
+  const bike = Bike.find({ maker: markBike });
+  return bike;
+}
+
 module.exports = {
   getBikeByName,
   createBike,
   updateBike,
   deleteBike,
   getallBikes,
+  getBikeByMark,
 };
