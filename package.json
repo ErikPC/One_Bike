@@ -10,7 +10,9 @@
         "start": "node index.js",
         "dev": "nodemon index.js",
         "test":"jest",
-        "coverage":"jest --coverage"
+        "coverage":"jest --coverage",
+        "docker": "docker build -t erikpc/onebike .",
+        "docker-push": "docker push erikpc/onebike"
         },
     "dependencies": {
         "dotenv": "^16.0.3",

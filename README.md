@@ -42,6 +42,13 @@ A la hora de lanzar la imagen en docker hay que acordarse de pasarle la MONGO_UR
 
 `docker run -e MONGO_URI='mongodb+srv://<user>:<password>@erik-cluster.cs90yi4.mongodb.net/?retryWrites=true&w=majority' -p 3000:3000 <nombre imagen>`
 
+Hay comandos para buildear el docker y pushear a dockerhub. Acordarse de ir al package.json y cambiar el ususario
+
+```
+        "docker": "docker build -t {usuario}/onebike .",
+        "docker-push": "docker push {ususario}/onebike"
+```
+
 ## Contribuciones
 
 Para contribuir a este proyecto, por favor envíe un pull request en el repositorio de GitHub: https://github.com/ErikPC/One_Bike
