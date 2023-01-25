@@ -10,24 +10,23 @@ require("dotenv").config();
 
 const uri = process.env.MONGO_URI_TEST;
 
+jest.setTimeout(10000);
+beforeAll(async () => {
+  mongoose.set("strictQuery", false);
+  await mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  await Bike.insertMany(bikes);
+});
+
+afterAll(async () => {
+  // Borramos los datos de la base de datos antes de cada prueba
+  await Bike.deleteMany({});
+  // Desconectamos de la base de datos de pruebas
+  await mongoose.connection.close();
+});
 describe("Test CRUD", () => {
-  jest.setTimeout(10000);
-  beforeAll(async () => {
-    mongoose.set("strictQuery", false);
-    await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    await Bike.insertMany(bikes);
-  });
-
-  afterAll(async () => {
-    // Borramos los datos de la base de datos antes de cada prueba
-    await Bike.deleteMany({});
-    // Desconectamos de la base de datos de pruebas
-    await mongoose.connection.close();
-  });
-
   test("create a bike", async () => {
     const response = await request(app).post("/api/bike").send(bikeToPut);
     const data = JSON.parse(response.text).bike;

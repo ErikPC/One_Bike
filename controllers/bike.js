@@ -1,4 +1,4 @@
-const repository = require("../repository/repository");
+const repository = require("../repository/repositoryBike");
 
 async function createBike(req, res) {
   try {
