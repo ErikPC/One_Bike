@@ -43,4 +43,10 @@ describe("Test CRUD", () => {
     expect(data[0].name).toBe("Mi tienda");
     expect(response.statusCode).toBe(200);
   });
+  test("update store", async () => {
+    const response = await request(app)
+      .put("/api/store/Mi tienda")
+      .send(storeToPut);
+    expect(response.statusCode).toBe(200);
+  });
 });

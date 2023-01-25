@@ -16,8 +16,16 @@ function getStoreByName(req) {
   const store = Store.find({ name: nameStore });
   return store;
 }
+
+function updateStore(name, body) {
+  const nameStore = name;
+  const params = body;
+  const store = Store.findOneAndUpdate({ name: nameStore }, params);
+  return store;
+}
 module.exports = {
   createStore,
   getStores,
   getStoreByName,
+  updateStore,
 };

@@ -36,8 +36,21 @@ async function getStoreByName(req, res) {
   }
 }
 
+async function updateStore(req, res) {
+  try {
+    const store = await repository.updateStore(req.params.name, req.body);
+    if (!store) {
+      res.status(400).send({ msg: "Error al buscar Tienda" });
+    } else {
+      res.status(200).send({ msg: "Se ha actualizado correcatemnte" });
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
 module.exports = {
   createStore,
   getStores,
   getStoreByName,
+  updateStore,
 };
