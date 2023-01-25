@@ -11,7 +11,13 @@ function getStores() {
   return store;
 }
 
+function getStoreByName(req) {
+  const nameStore = req;
+  const store = Store.find({ name: nameStore });
+  return store;
+}
 module.exports = {
   createStore,
   getStores,
+  getStoreByName,
 };

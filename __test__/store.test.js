@@ -37,4 +37,10 @@ describe("Test CRUD", () => {
     const response = await request(app).get("/api/store");
     expect(response.statusCode).toBe(200);
   });
+  test("get store by name", async () => {
+    const response = await request(app).get("/api/store/Mi tienda");
+    const data = JSON.parse(response.text);
+    expect(data[0].name).toBe("Mi tienda");
+    expect(response.statusCode).toBe(200);
+  });
 });

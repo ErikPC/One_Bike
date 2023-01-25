@@ -23,7 +23,21 @@ async function getStores(req, res) {
   }
 }
 
+async function getStoreByName(req, res) {
+  try {
+    const store = await repository.getStoreByName(req.params.name);
+    if (store.length == 0) {
+      res.status(400).send({ msg: "No se ha podido encontrar la Tienda" });
+    } else {
+      res.status(200).send(store);
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
+
 module.exports = {
   createStore,
   getStores,
+  getStoreByName,
 };
