@@ -48,9 +48,22 @@ async function updateStore(req, res) {
     res.status(500).send(error);
   }
 }
+async function deleteStore(req, res) {
+  try {
+    const store = await repository.deleteStore(req.params.name);
+    if (!store) {
+      res.status(400).send({ msg: "No se ha podido eliminar la Tienda" });
+    } else {
+      res.status(200).send({ msg: "Se ha eliminado correctamente" });
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
 module.exports = {
   createStore,
   getStores,
   getStoreByName,
   updateStore,
+  deleteStore,
 };

@@ -1,4 +1,5 @@
 const Store = require("../models/store");
+const Bike = require("../models/bike");
 
 function createStore(req) {
   const storeParams = req;
@@ -23,9 +24,17 @@ function updateStore(name, body) {
   const store = Store.findOneAndUpdate({ name: nameStore }, params);
   return store;
 }
+
+function deleteStore(req) {
+  const nameStore = req;
+  const save = Store.findOneAndDelete({ name: nameStore });
+  Bike.deleteMany({ store: nameStore });
+  return save;
+}
 module.exports = {
   createStore,
   getStores,
   getStoreByName,
   updateStore,
+  deleteStore,
 };

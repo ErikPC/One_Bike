@@ -49,4 +49,10 @@ describe("Test CRUD", () => {
       .send(storeToPut);
     expect(response.statusCode).toBe(200);
   });
+  test("delete store", async () => {
+    const response = await request(app).delete("/api/store/Canyon");
+    expect(response.statusCode).toBe(200);
+    const response2 = await request(app).get("/api/bike/Canyon");
+    expect(response2.statusCode).toBe(400);
+  });
 });
