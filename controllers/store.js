@@ -1,11 +1,8 @@
-const Store = require("../models/store.js");
+const repository = require("../repository/repositoryStore");
 
 async function createStore(req, res) {
-  const storeParams = req.body;
-  const store = new Store(storeParams);
-
   try {
-    const storeCreated = await store.save();
+    const storeCreated = await repository.createStore(req.body);
 
     if (!storeCreated) {
       res.status(400).send({ msg: "No se ha podido crear la Tienda" });
@@ -19,7 +16,7 @@ async function createStore(req, res) {
 
 async function getStores(req, res) {
   try {
-    var stores = await Store.find();
+    var stores = await repository.getStores();
     res.status(200).send(stores);
   } catch (error) {
     res.status(500).send(error);
