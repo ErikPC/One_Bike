@@ -1,0 +1,17 @@
+{
+  "store":"Bicitore",
+    "year": "2019",
+    "maker": "Brand 3",
+    "name": "Bike 3",
+    "description": "Third bike",
+    "msrp": "$900",
+    "weight": "11kg",
+    "suspension": "None",
+    "travel": "80mm",
+    "frame": "Steel",
+    "fork": "Brand fork",
+    "wheels": "Brand wheels",
+    "drivetrain": "Brand drivetrain",
+    "groupset": "Brand groupset",
+    "brakes": "Brand brakes"
+  }
