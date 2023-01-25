@@ -2,7 +2,7 @@ const Store = require("../models/store.js");
 
 async function createStore(req, res) {
   const storeParams = req.body;
-  const store = new Bike(storeParams);
+  const store = new Store(storeParams);
 
   try {
     const storeCreated = await store.save();
@@ -24,9 +24,9 @@ async function getStores(req, res) {
   } catch (error) {
     res.status(500).send(error);
   }
-
-  module.exports = {
-    createStore,
-    getStores,
-  };
 }
+
+module.exports = {
+  createStore,
+  getStores,
+};
