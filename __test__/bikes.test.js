@@ -70,4 +70,13 @@ describe("Test CRUD", () => {
     const response = await request(app).get("/api/bike/maker/Scott");
     expect(response.statusCode).toBe(400);
   });
+
+  test("get bike by maker code 200", async () => {
+    const response = await request(app).get("/api/bike/store/Canyon");
+    expect(response.statusCode).toBe(200);
+  });
+  test("get bike by maker code 400", async () => {
+    const response = await request(app).get("/api/bike/store/YES");
+    expect(response.statusCode).toBe(400);
+  });
 });

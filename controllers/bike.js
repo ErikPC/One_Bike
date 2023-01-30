@@ -1,3 +1,4 @@
+const bike = require("../models/bike");
 const repository = require("../repository/repositoryBike");
 
 async function createBike(req, res) {
@@ -75,6 +76,21 @@ async function getBikeByMark(req, res) {
   }
 }
 
+async function getBikeOfStore(req, res) {
+  try {
+    const bikes = await repository.getBikesOfStore(req.params.store);
+    if (bikes.length == 0) {
+      res
+        .status(400)
+        .send({ msg: "No se ha encontrado ninguna bici en esa tienda" });
+    } else {
+      res.status(200).send(bikes);
+    }
+  } catch (error) {
+    res.status(500).send(erros);
+  }
+}
+
 module.exports = {
   createBike,
   getAllBikes,
@@ -82,4 +98,5 @@ module.exports = {
   deleteBike,
   getBikeByName,
   getBikeByMark,
+  getBikeOfStore,
 };

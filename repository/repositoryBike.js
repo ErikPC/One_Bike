@@ -35,6 +35,12 @@ function getBikeByMark(req) {
   return bike;
 }
 
+function getBikesOfStore(req) {
+  const storeName = req;
+  const bikes = Bike.find({ store: storeName });
+  return bikes;
+}
+
 module.exports = {
   getBikeByName,
   createBike,
@@ -42,4 +48,5 @@ module.exports = {
   deleteBike,
   getallBikes,
   getBikeByMark,
+  getBikesOfStore,
 };
