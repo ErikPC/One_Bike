@@ -61,6 +61,10 @@ const bikeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  disponibilidad: {
+    type: Boolean,
+    require: true,
+  },
 });
 
 module.exports = mongoose.model("Bike", bikeSchema);
