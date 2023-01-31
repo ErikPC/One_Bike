@@ -87,3 +87,18 @@ Recuerde configurar la conexión a su base de datos y que esta se encuentre en e
 ### Nota
 
 Para poder realizar todas las operaciones CRUD, es recomendable realizarlo mediante alguna herramienta o utilidad como Postman.
+
+### deconstructuring
+
+```js
+function getAlquilarBici(req, res) {
+  alquilarService
+    .alquilarBici(req.params.store, req.params.bike)
+    .then(({ status, message }) => {
+      res.status(status).send(message);
+    })
+    .catch((error) => {
+      res.status(500).send(error);
+    });
+}
+```
