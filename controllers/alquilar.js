@@ -1,8 +1,17 @@
-const alquilarService = require("../domain/alquilar");
+const { alquilarBici, devolverBici } = require("../domain/alquilar");
 
 function getAlquilarBici(req, res) {
-  alquilarService
-    .alquilarBici(req.params.store, req.params.bike)
+  alquilarBici(req.params.store, req.params.bike)
+    .then(({ status, message }) => {
+      res.status(status).send(message);
+    })
+    .catch((error) => {
+      res.status(500).send(error);
+    });
+}
+
+function getDevolverBici(req, res) {
+  devolverBici(req.params.store, req.params.bike)
     .then(({ status, message }) => {
       res.status(status).send(message);
     })
@@ -13,4 +22,5 @@ function getAlquilarBici(req, res) {
 
 module.exports = {
   getAlquilarBici,
+  getDevolverBici,
 };

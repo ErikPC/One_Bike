@@ -34,4 +34,11 @@ describe("Test CRUD", () => {
     expect(response.statusCode).toBe(200);
     expect(data.disponibilidad).toBe(false);
   });
+
+  test("devolver bike", async () => {
+    const response = await request(app).get("/api/devolver/Canyon/paco");
+    const data = JSON.parse(response.text)[0];
+    expect(response.statusCode).toBe(200);
+    expect(data.disponibilidad).toBe(true);
+  });
 });

@@ -54,6 +54,25 @@
       "groupset": "Brand groupset",
       "brakes": "Brand brakes",
       "disponibilidad": "true"
+    },
+    {
+      "store":"Canyon",
+      "year": "2022",
+      "maker": "Brand 1",
+      "name": "paco",
+      "description": "First bike",
+      "msrp": "$1200",
+      "weight": "13kg",
+      "suspension": "None",
+      "travel": "100mm",
+      "frame": "Aluminun",
+      "fork": "Brand fork",
+      "wheels": "Brand wheels",
+      "drivetrain": "Brand drivetrain",
+      "groupset": "Brand groupset",
+      "brakes": "Brand brakes",
+      "disponibilidad": "false"
+
     }
   ]
   

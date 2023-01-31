@@ -14,6 +14,21 @@ async function alquilarBici(store, bike) {
   }
 }
 
+async function devolverBici(store, bike) {
+  try {
+    const devolver = await repository.devolverBikeByStore(store, bike);
+    if (!devolver) {
+      return { status: 400, message: "Bicycle not found for return" };
+    }
+    const [bikeDevuelta] = devolver;
+    bikeDevuelta.disponibilidad = true;
+    return { status: 200, message: devolver };
+  } catch (error) {
+    return { status: 500, message: error.message };
+  }
+}
+
 module.exports = {
   alquilarBici,
+  devolverBici,
 };
