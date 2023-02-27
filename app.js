@@ -16,8 +16,8 @@ const alquilar_routes = require("./routes/alquilar");
 app.use("/api", bike_routes);
 app.use("/api", store_routes);
 app.use("/api", alquilar_routes);
-app.get("/store", (req, res) => {
-  const htmlPath = path.join(__dirname, "public", "store.html");
+app.get("/:pagina", (req, res) => {
+  const htmlPath = path.join(__dirname, "public", req.params.pagina + ".html");
   res.sendFile(htmlPath);
 });
 app.get("/", (req, res) => {

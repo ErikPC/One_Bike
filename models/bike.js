@@ -63,7 +63,7 @@ const bikeSchema = new mongoose.Schema({
   },
   disponibilidad: {
     type: Boolean,
-    require: true,
+    required: true,
   },
 });
 

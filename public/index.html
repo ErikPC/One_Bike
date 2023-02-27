@@ -31,13 +31,13 @@
           bikes.forEach((bike) => {
             const item = document.createElement("li");
             item.innerHTML = `
-              <h3>${bike.name}</h3>
+              <h3><a href="/bike?bike=${bike.name}">${bike.name}</a></h3>
               <p>${bike.description}</p>
               <p>Precio: ${bike.msrp}€</p>
               <p>Disponibilidad : ${bike.disponibilidad}</p>
               <p>Store: <a href="/store?store=${bike.store}"> ${bike.store}</a></p>
-              <button onclick='alquilar()'>Alquilar</button>
-              <button onclick='devolver()'>Devolver</button>
+              <button onclick='confirmar("${bike.store}","${bike.name}")'>Alquilar</button>
+              <button onclick='devolver("${bike.store}","${bike.name}")'>Devolver</button>
             `;
             list.appendChild(item);
           });
