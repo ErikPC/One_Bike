@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bike</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>One Bike</h1>
+    <p>
+      Bienvenidos a nuestra tienda de bicicletas. Aquí encontrarás una amplia
+      selección de bicicletas para todas las edades y habilidades. Nuestro
+      amable personal estará encantado de ayudarte a encontrar la bicicleta
+      perfecta.
+    </p>
+    <h2>Caracteristicas técnicas</h2>
+    <ul></ul>
+    <footer>
+      <h4>Contacto:</h4>
+      <p>Email: epardillo@cifpfbmoll.eu</p>
+      <h4>Ubicación</h4>
+      <p>Cada vez mas lejos</p>
+    </footer>
+    <script>
+      const bike = new URLSearchParams(window.location.search).get("bike");
+      fetch("api/bike/" + bike)
+        .then((response) => response.json())
+        .then((bike) => {
+          bike = bike[0];
+          const list = document.querySelector("ul");
+          const item = document.createElement("li");
+          item.innerHTML = `
+          <p>${bike.name}</p>
+            <p>Año: ${bike.year}</p>
+            <p>Fabricante: ${bike.maker}</p>
+            <p>Descripción: ${bike.description}</p>
+            <p>MSRP: ${bike.msrp}</p>
+            <p>Peso: ${bike.weight}</p>
+            <p>Suspensión: ${bike.suspension}</p>
+            <p>Recorrido: ${bike.travel}</p>
+            <p>Marco: ${bike.frame}</p>
+            <p>Tenedor: ${bike.fork}</p>
+            <p>Ruedas: ${bike.wheels}</p>
+            <p>Transmisión: ${bike.drivetrain}</p>
+            <p>Grupo de cambios: ${bike.groupset}</p>
+            <p>Frenos: ${bike.brakes}</p>
+            <p>Disponibilidad: ${bike.disponibilidad}</p>
+                `;
+          list.appendChild(item);
+        });
+    </script>
+  </body>
+</html>

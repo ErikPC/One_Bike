@@ -1,20 +1,15 @@
 const Bike = require("../models/bike");
 
-function alquilarBikebyStore(nameStore, nameBike) {
-  const bike = Bike.find({ nameStore, nameBike, disponibilidad: true });
-  Bike.updateOne(
-    { nameStore, nameBike, disponibilidad: true },
-    { disponibilidad: false }
-  );
+async function alquilarBikebyStore(store, name) {
+  const bike = await Bike.find({
+    store,
+    name,
+  });
   return bike;
 }
 
-function devolverBikeByStore(nameStore, nameBike) {
-  const bike = Bike.find({ nameStore, nameBike, disponibilidad: false });
-  Bike.updateOne(
-    { nameStore, nameBike, disponibilidad: false },
-    { disponibilidad: true }
-  );
+function devolverBikeByStore(store, name) {
+  const bike = Bike.find({ store, name });
   return bike;
 }
 

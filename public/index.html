@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>One Bike</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="store.js"></script>
+  </head>
+  <body>
+    <h1>One Bike</h1>
+    <p>
+      Bienvenidos a nuestra tienda de bicicletas. Aquí encontrarás una amplia
+      selección de bicicletas para todas las edades y habilidades. Nuestro
+      amable personal estará encantado de ayudarte a encontrar la bicicleta
+      perfecta.
+    </p>
+
+    <h2>Nuestras bicicletas</h2>
+    <ul></ul>
+
+    <footer>
+      <h4>Contacto:</h4>
+      <p>Email: epardillo@cifpfbmoll.eu</p>
+      <h4>Ubicación</h4>
+      <p>Cada vez mas lejos</p>
+    </footer>
+    <script>
+      fetch("/api/bike")
+        .then((response) => response.json())
+        .then((bikes) => {
+          const list = document.querySelector("ul");
+          bikes.forEach((bike) => {
+            const item = document.createElement("li");
+            item.innerHTML = `
+              <h3><a href="/bike?bike=${bike.name}">${bike.name}</a></h3>
+              <p>${bike.description}</p>
+              <p>Precio: ${bike.msrp}€</p>
+              <p>Disponibilidad : ${bike.disponibilidad}</p>
+              <p>Store: <a href="/store?store=${bike.store}"> ${bike.store}</a></p>
+              <button onclick='confirmar("${bike.store}","${bike.name}")'>Alquilar</button>
+              <button onclick='devolver("${bike.store}","${bike.name}")'>Devolver</button>
+            `;
+            list.appendChild(item);
+          });
+        });
+    </script>
+  </body>
+</html>

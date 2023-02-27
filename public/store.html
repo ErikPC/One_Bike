@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>One Bike</h1>
+    <p>
+      Bienvenidos a nuestra tienda de bicicletas. Aquí encontrarás una amplia
+      selección de bicicletas para todas las edades y habilidades. Nuestro
+      amable personal estará encantado de ayudarte a encontrar la bicicleta
+      perfecta.
+    </p>
+    <ul></ul>
+
+    <footer>
+      <h4>Contacto:</h4>
+      <p>Email: epardillo@cifpfbmoll.eu</p>
+      <h4>Ubicación</h4>
+      <p>Cada vez mas lejos</p>
+    </footer>
+    <script>
+      const store = new URLSearchParams(window.location.search).get("store");
+      fetch("api/store/" + store)
+        .then((response) => response.json())
+        .then((store) => {
+          store = store[0];
+          const list = document.querySelector("ul");
+          const item = document.createElement("li");
+          item.innerHTML = `
+                    <h3>${store.name}</h3>
+                    <p>${store.address}</p>
+                    <p>Ubicación: ${store.phone}</p>
+                    <p>Horario: ${store.email}</p>
+                `;
+          list.appendChild(item);
+        });
+    </script>
+  </body>
+</html>
