@@ -13,6 +13,25 @@
       amable personal estará encantado de ayudarte a encontrar la bicicleta
       perfecta.
     </p>
+    <form class="search-bike-form">
+      <input
+        type="text"
+        id="search-bike"
+        name="search-input"
+        placeholder="Buscar Bicicleta"
+      />
+      <input type="submit" value="Buscar" />
+    </form>
+
+    <form class="search-store-form">
+      <input
+        type="text"
+        id="search-store"
+        name="search-input"
+        placeholder="Buscar Store"
+      />
+      <input type="submit" value="Buscar" />
+    </form>
 
     <h2>Nuestras bicicletas</h2>
     <ul></ul>
@@ -31,6 +50,8 @@
           bikes.forEach((bike) => {
             const item = document.createElement("li");
             item.innerHTML = `
+            <ul>
+             <li>
               <h3><a href="/bike?bike=${bike.name}">${bike.name}</a></h3>
               <p>${bike.description}</p>
               <p>Precio: ${bike.msrp}€</p>
@@ -38,9 +59,25 @@
               <p>Store: <a href="/store?store=${bike.store}"> ${bike.store}</a></p>
               <button onclick='confirmar("${bike.store}","${bike.name}")'>Alquilar</button>
               <button onclick='devolver("${bike.store}","${bike.name}")'>Devolver</button>
+              </li>
+            </ul>
             `;
             list.appendChild(item);
           });
+        });
+      document
+        .querySelector(".search-bike-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          window.location.href =
+            "/bike?bike=" + document.getElementById("search-bike").value;
+        });
+      document
+        .querySelector(".search-store-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          window.location.href =
+            "/store?store=" + document.getElementById("search-store").value;
         });
     </script>
   </body>
