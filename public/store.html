@@ -30,14 +30,18 @@
         .then((store) => {
           store = store[0];
           const list = document.querySelector("ul");
-          const item = document.createElement("li");
-          item.innerHTML = `
+          if (store) {
+            const item = document.createElement("li");
+            item.innerHTML = `
                     <h3>${store.name}</h3>
                     <p>${store.address}</p>
                     <p>Ubicación: ${store.phone}</p>
                     <p>Horario: ${store.email}</p>
                 `;
-          list.appendChild(item);
+            list.appendChild(item);
+          } else {
+            window.alert("No se ha encontrado la tienda");
+          }
         });
     </script>
   </body>

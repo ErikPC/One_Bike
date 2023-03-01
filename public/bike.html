@@ -30,8 +30,9 @@
         .then((bike) => {
           bike = bike[0];
           const list = document.querySelector("ul");
-          const item = document.createElement("li");
-          item.innerHTML = `
+          if (bike) {
+            const item = document.createElement("li");
+            item.innerHTML = `
           <p>${bike.name}</p>
             <p>Año: ${bike.year}</p>
             <p>Fabricante: ${bike.maker}</p>
@@ -48,7 +49,10 @@
             <p>Frenos: ${bike.brakes}</p>
             <p>Disponibilidad: ${bike.disponibilidad}</p>
                 `;
-          list.appendChild(item);
+            list.appendChild(item);
+          } else {
+            window.alert("No se ha encontrado la bicicleta");
+          }
         });
     </script>
   </body>
