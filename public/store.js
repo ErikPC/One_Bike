@@ -7,7 +7,7 @@ function alquilar(store, bike) {
 }
 
 function devolver(store, bike) {
-  if (confirm("¿Estás seguro de que deseas continuar?")) {
+  if (confirm("¿Estás seguro de que deseas devolver la bicicleta?")) {
     fetch("api/devolver/" + store + "/" + bike).then((res) => {
       const url = `bike?bike=${bike}&store=${store}`;
       window.location.href = url;
@@ -16,7 +16,7 @@ function devolver(store, bike) {
 }
 
 function confirmar(store, bike) {
-  if (confirm("¿Estás seguro de que deseas continuar?")) {
+  if (confirm("¿Estás seguro de que deseas alquilar la bicicleta?")) {
     fetch("api/alquilar/" + store + "/" + bike).then((res) => {
       const url = `bike?bike=${bike}&store=${store}`;
       window.location.href = url;
