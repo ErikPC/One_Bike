@@ -49,8 +49,8 @@
             <p>Grupo de cambios: ${bike.groupset}</p>
             <p>Frenos: ${bike.brakes}</p>
             <p>Disponibilidad: ${bike.disponibilidad}</p>
-            <button onclick='confirmar("${bike.store}","${bike.name}")'>Alquilar</button>
-            <button onclick='devolver("${bike.store}","${bike.name}")'>Devolver</button>
+            <button onclick='confirmar("${bike.store}","${bike.name}","${bike.disponibilidad}")'>Alquilar</button>
+            <button onclick='devolver("${bike.store}","${bike.name}","${bike.disponibilidad}")'>Devolver</button>
 
                 `;
             list.appendChild(item);
