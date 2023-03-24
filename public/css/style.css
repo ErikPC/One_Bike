@@ -1,7 +1,6 @@
 /* Base styles */
 body {
   background-color: #e8f4f8;
-
   color: #444;
   font-family: sans-serif;
   margin: 0;
@@ -17,7 +16,8 @@ h1 {
   color: #00529b;
 }
 
-p {
+p#description {
+  padding: 2%;
   font-size: 1.2rem;
   line-height: 1.5;
   margin: 1rem 0;
